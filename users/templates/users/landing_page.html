@@ -1,0 +1,212 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Meta información básica -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Authors Heaven: Descubre libros, cómics y mangas exclusivos. Únete a nuestra comunidad de autores y lectores apasionados. ¡Suscríbete por solo $100 trimestrales!">
+    <meta name="keywords" content="Authors Heaven, libros, cómics, mangas, red social, escritura, lectura, autores, lectores, creatividad">
+    <meta name="author" content="Authors Heaven Team">
+
+    <!-- Para compartir en redes sociales -->
+    <meta property="og:title" content="Authors Heaven - Libros, Cómics y Red Social">
+    <meta property="og:description" content="Explora un mundo de creatividad y talento latinoamericano. Publica, lee y conecta con otros apasionados de la literatura y el arte.">
+    <meta property="og:image" content="https://www.tu-sitio.com/imagen-compartir.jpg">
+    <meta property="og:url" content="https://www.authorsheaven.com">
+    <meta property="og:type" content="website">
+
+    <!-- Para Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Authors Heaven - Tu plataforma creativa">
+    <meta name="twitter:description" content="Publica, lee y conecta en una comunidad vibrante de autores y lectores. ¡Descubre historias únicas!">
+    <meta name="twitter:image" content="https://www.tu-sitio.com/imagen-compartir.jpg">
+
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'landing_page.css' %}" > 
+
+    <title>Telecraft - ¡Únete Ahora!</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8G9KXKG4K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-G8G9KXKG4K');
+    </script>
+
+
+    
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #232323;
+        }
+
+        /* Encabezado */
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        /* Sección de características */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .feature {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .feature h3 {
+            margin-top: 1rem;
+        }
+
+        /* Botón de CTA */
+        .cta {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta button {
+            background: #6a11cb;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .cta button:hover {
+            background: #2575fc;
+        }
+
+        /* Pie de página */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Bienvenido a Telecraft</h1>
+        <p>Explora un mundo lleno de creatividad: cómics, libros, mangas y una comunidad vibrante.</p>
+    </header>
+
+    <!-- Características -->
+    <section class="features">
+        <div class="feature">
+            <img src="{% static 'imagenes/autor_landing.png' %}" alt="Autores">
+            <h3>Para Autores</h3>
+            <p>Publica tus obras y da vida a tus ideas.</p>
+        </div>
+        <div class="feature">
+            <img src="{% static 'imagenes/comics_landing.png' %}" alt="Cómics">
+            <h3>Cómics y Mangas</h3>
+            <p>Disfruta de contenido exclusivo creado por talentos latinoamericanos.</p>
+        </div>
+        <div class="feature">
+            <img src="{% static 'imagenes/libro_landing.jpg' %}" alt="Libros">
+            <h3>Libros Exclusivos</h3>
+            <p>Historias cautivadoras que no encontrarás en ningún otro lugar.</p>
+        </div>
+        <div class="feature">
+            <img src="{% static 'imagenes/red_landing.jpg' %}" alt="Red social">
+            <h3>Red Social</h3>
+            <p>Conéctate con autores y lectores apasionados.</p>
+        </div>
+    </section>
+
+    <!-- Llamado a la acción -->
+    <section class="cta">
+        <button onclick="subscribe()">¡Suscríbete ahora por solo $100!</button>
+    </section>
+
+    <section class="testimonials-carousel">
+        <h2>Lo que dicen nuestros usuarios</h2>
+        <div class="carousel">
+            <div class="testimonial active">
+                <p>"Telecraft me dio la oportunidad de publicar mi primera novela y conectar con una comunidad increíble de escritores y lectores. ¡Una experiencia única!"</p>
+                <h4>- Mariana López, Escritora emergente</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Gracias a Telecraft, descubrí cómics y mangas creados por artistas latinoamericanos que ahora son mis favoritos. ¡Nunca había visto tanto talento en un solo lugar!"</p>
+                <h4>- Carlos Pérez, Lector apasionado</h4>
+            </div>
+            <div class="testimonial">
+                <p>"La red social de Telecraft es el lugar perfecto para aprender y compartir. Tomé un curso de dibujo y ahora publico mis propias obras en la plataforma."</p>
+                <h4>- Laura Martínez, Ilustradora y fanática de cómics</h4>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button id="prev" aria-label="Anterior">⟨</button>
+            <button id="next" aria-label="Siguiente">⟩</button>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2025 Telecraft. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function subscribe() {
+            alert("¡Gracias por tu interés! Serás redirigido a nuestra página de suscripción.");
+            // Aquí puedes redirigir a la página de suscripción
+            window.location.href = "{% url 'plantilla_no_funciona' %}";
+        }
+    </script>
+
+    <script src="{% static 'js/landing_page.js' %}"></script>  
+
+
+</body>
+</html>

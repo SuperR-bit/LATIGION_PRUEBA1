@@ -1,0 +1,8 @@
+<h1>Comics Random</h1>
+<ul>
+    {% for comic in comics %}
+    <li>
+        <a href="{% url 'comic_detail' comic.id %}">{{ comic.title }}</a> - {{ comic.views }} vistas
+    </li>
+    {% endfor %}
+</ul>

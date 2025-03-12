@@ -1,0 +1,15 @@
+{% extends 'comics/base.html' %}
+
+{% block content %}
+    <h2>Cómics por Género</h2>
+    {% for genre, comics in comics_by_genre.items %}
+        <h3>{{ genre.name }}</h3>
+        <ul>
+            {% for comic in comics %}
+                <li><a href="{% url 'comic_detail' comic.id %}">{{ comic.title }}</a></li>
+            {% empty %}
+                <li>No hay cómics en este género.</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}

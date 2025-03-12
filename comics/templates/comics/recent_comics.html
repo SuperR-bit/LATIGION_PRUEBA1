@@ -1,0 +1,23 @@
+{% extends 'comics/base.html' %}
+
+{% block content %}
+
+
+    <div class="center-container-h2">
+        <h2>Cómics Recientes</h2>
+    </div>
+    <div class="comic-list">
+        {% for comic in comics %}
+            <div class="comic-card">
+                <a href="{% url 'comic_detail' comic.id %}">
+                    {% if comic.cover_image %}
+                        <img src="{{ comic.cover_image.url }}" alt="{{ comic.title }}">
+                    {% endif %}
+                    <h3>{{ comic.title }}</h3>
+                </a>
+            </div>
+        {% empty %}
+            <p>No hay cómics aún.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

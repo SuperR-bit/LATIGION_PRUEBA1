@@ -1,0 +1,101 @@
+<!-- author_home.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Publica y comparte tus cómics, mangas y libros en LATIGION. Encuentra lectores y forma parte de una comunidad creativa.">
+    <meta name="keywords" content="autores, escritura, publicación, cómics, manga, herramienta de dibujo, herramienta de escritura, guion, LATIGION">
+    <meta property="og:title" content="Autores - LATIGION">
+    <meta property="og:description" content="Publica tus historias y conéctate con una comunidad de lectores y creadores.">
+    <meta property="og:image" content="URL_DE_LA_IMAGEN">
+    <meta property="og:url" content="URL_DE_LA_PAGINA">
+    <meta name="twitter:title" content="Autores - LATIGION">
+    <meta name="twitter:description" content="Publica tus historias y conéctate con una comunidad de lectores y creadores.">
+
+
+
+    <title>Latigion - Autores</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'author/styles.css' %}">
+</head>
+<body>
+    <header>
+
+        <nav class="menu-global">
+            <a href="{% url 'comics_home' %}">Lectura</a>
+            <a href="{% url 'author_home' %}">Autores</a>
+            <a href="{% url 'social_home' %}">Red Social</a>
+        </nav>
+
+
+        <h1>Bienvenido a Latigion</h1>
+        <p>El espacio ideal para escritores y dibujantes (Por el momento lo que ves es solo una muestra visual de lo que sera esta seccion. La herramient Tutoriales, Herramientas de dibujo, Herramienta de escritura si estan disponibles para usar)</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'tutorial' %}">Tutoriales</a></li>
+            <li><a href= "{% url 'dibujo' %}">Herramientas de dibujo</a></li>
+            <li><a href="{% url 'writer' %}">Herramientas de escritura</a></li>
+            <li><a href="{% url 'Herramientas_creativas' %}">Herramientas creativas</a></li> 
+        </ul>
+    </nav>
+
+
+    <section id="destacados">
+        <h2>Obras Destacadas</h2>
+        <div class="grid-container">
+
+            <div class="card">MAS VISTA DEL DIA
+                <div class="image-gallery">
+                    <img src="{% static 'imagenes/las_mil_y_una_noche.jpg' %}" alt="Imagen">
+                </div>
+            </div>
+
+            <div class="card">MAS POPULAR
+                <div class="image-gallery">
+                    <img src="{% static 'imagenes/portada arkham.png' %}" alt="Imagen">
+                </div>
+            </div>
+
+            <div class="card">MAS LIKES
+                <div class="image-gallery">
+                    <img src="{% static 'imagenes/comic2.jpg' %}" alt="Imagen">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="publicaciones">
+        <h2>Últimas Publicaciones</h2>
+        <div class="grid-container">
+            <div class="card">Coloreando la pagina 3
+                <div class="image-gallery">
+                    <img src="{% static 'imagenes/Coloreando.png' %}" alt="Las Mil y una noches">
+                </div>
+            </div>
+
+
+            <div class="card">Rascandome la cabeza para terminar el guion de la semana
+                <div class="image-gallery">
+                    <img src="{% static 'imagenes/escribiendo guion.png' %}" alt="Las Mil y una noches">
+                </div>
+            </div>
+
+
+            <div class="card">Como quisiera tener esta tableta para dibujar mis mangas
+                <div class="image-gallery">
+                    <img src="{% static 'imagenes/dibujo digital.jpg' %}" alt="Las Mil y una noches">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="subir">
+        <h2>Sube tu obra</h2>
+        <p>Comparte tu historia con la comunidad.</p>
+        <button>Subir</button>
+    </section>
+</body>
+</html>

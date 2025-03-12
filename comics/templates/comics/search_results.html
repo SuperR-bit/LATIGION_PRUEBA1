@@ -1,0 +1,41 @@
+{% extends 'comics/base.html' %}
+
+{% block content %}
+
+    <div class="form-container">
+
+        <h2>Resultados de Búsqueda</h2>
+
+        <form method="GET">
+
+            <div class="form-group">
+                    {{ form.as_p }}
+            </div>
+
+            <button type="submit" class="submit-btn">Buscar</button>
+        </form>
+
+    </div>
+
+    <div class="comic-list">
+        {% if comics %}
+            <ul>
+                {% for comic in comics %}
+                <div class="comic-card">
+                    <a href="{% url 'comic_detail' comic.id %}">
+                        {% if comic.cover_image %}
+                            <img src="{{ comic.cover_image.url }}" alt="{{ comic.title }}">
+                        {% endif %}
+                        <h3>{{ comic.title }}</h3>
+                    </a>
+                </div>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se encontraron resultados.</p>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
+

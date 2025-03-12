@@ -1,0 +1,12 @@
+{% extends 'comics/base.html' %}
+
+{% block content %}
+    <h2>Cómics en formato: {{ format_type|title }}</h2>
+    <ul>
+        {% for comic in comics %}
+            <li><a href="{% url 'comic_detail' comic.id %}">{{ comic.title }}</a></li>
+        {% empty %}
+            <li>No hay cómics en este formato.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

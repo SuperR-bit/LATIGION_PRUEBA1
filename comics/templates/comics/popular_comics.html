@@ -1,0 +1,41 @@
+{% extends 'comics/base.html' %}
+
+{% block content %}
+
+
+    <div class="center-container-h2">
+        <h2>Cómics Populares</h2>
+    </div>
+
+
+    <table class="popular-comics-table">
+        <thead>
+            <tr>
+                <th>Portada</th>
+                <th>Título</th>
+                <th>Visitas</th>
+                <th>likes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for comic in comics %}
+                <tr>
+                    <td>
+                        {% if comic.cover_image %}
+                            <img class="comic-cover" src="{{ comic.cover_image.url }}" alt="{{ comic.title }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'comic_detail' comic.id %}">{{ comic.title }}</a>
+                    </td>
+                    <td class = "vistas">{{ comic.views }}</td>
+                    <td class = "vistas">{{ comic.likes }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">No hay cómics populares aún.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

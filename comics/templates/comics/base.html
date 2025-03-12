@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LATIGION - Plataforma para leer, compartir y descubrir cómics, mangas y libros.">
+    <meta name="keywords" content="cómics, manga, libros, lectura, autores, plataforma de lectura, latinoamericanos, publicación digital, herramientas para autores, LATIGION">
+    <meta name="author" content="LATIGION">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="LATIGION - Descubre y Comparte Historias">
+    <meta property="og:description" content="Explora un catálogo de cómics, mangas y libros. Comparte tus historias con el mundo.">
+    <meta property="og:image" content="URL_DE_LA_IMAGEN">
+    <meta property="og:url" content="URL_DEL_SITIO">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LATIGION - Cómics, Mangas y Libros">
+    <meta name="twitter:description" content="Explora un catálogo de cómics, mangas y libros. Comparte tus historias con el mundo.">
+    <meta name="twitter:image" content="URL_DE_LA_IMAGEN">
+
+
+    <title>{% block title %}Comics{% endblock %}</title>
+    <style>
+        /*body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: black; color: white; }*/
+        .menuglobal { background: #222; padding: 20px; text-align: center; position: relative; z-index: 100;  }
+        .menuglobal a { color: red; text-decoration: none; margin: 15px; font-size: 18px; font-weight: bold; }
+        .menuglobal a:hover { text-decoration: underline; }
+        .menu_content { padding: 20px; }
+    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- MENÚ GLOBAL -->
+    <div class="menuglobal">
+        <a href="{% url 'home' %}">🏠 Inicio</a>
+        <a href="{% url 'comics_home' %}">📚 Lectura</a>
+        <a href="{% url 'author_home' %}">✍️ Autores</a>
+        <a href="{% url 'social_home' %}">💬 Red Social</a>
+        <a href="{% url 'registro' %}">Registrarse</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Cerrar sesión</a>
+        {% else %}
+            <a href="{% url 'login' %}">Iniciar sesión</a>
+        {% endif %}
+    </div>
+    <!-- CONTENIDO DE LA SECCIÓN DE CÓMICS -->
+    <div class = "seccion_comic">
+        <!-- MENU DE COMICS AQUI QUIERO QUE AGREGES EL LOGO -->
+        <header>
+            <div class="content">
+                <div class="menu container">
+                    <a href="{% url 'home' %}" class="logo">
+                        <img src="{% static 'imagenes/logo_telecraft.png' %}" alt="Logo TaleCraft" class="logo-img">
+                    </a>
+                    <a href="{% url 'home' %}" class="logo">Latigion</a>
+                    <nav class="navbar">
+                        <ul>
+                            <li><a class = "color_index" href="{% url 'home' %}">Inicio</a></li>
+                            <li><a class = "color_index" href="{% url 'upload_comic' %}">Subir Cómic</a></li>
+                            <li><a class = "color_index" href="{% url 'popular_comics' %}">Cómics Populares</a></li>
+                            <li><a class = "color_index" href="{% url 'recent_comics' %}">Cómics Recientes</a></li>
+                            <li><a class = "color_index" href="{% url 'random_comic' %}">Cómic Aleatorio</a></li>
+                            <li><a class = "color_index" href="{% url 'search_comics' %}">Buscar Cómics</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="content">
+            {% block content %}
+            {% endblock %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        </main>        
+        <footer class="footer contenido">
+            <h3><a href = "{% url 'home' %}">Latigion</a></h3>
+            <ul>
+                <li><a class = "color_index" href="{% url 'home' %}">Inicio</a></li>
+                <li><a class = "color_index" href="{% url 'upload_comic' %}">Subir Cómic</a></li>
+                <li><a class = "color_index" href="{% url 'popular_comics' %}">Cómics Populares</a></li>
+                <li><a class = "color_index" href="{% url 'recent_comics' %}">Cómics Recientes</a></li>
+                <li><a class = "color_index" href="{% url 'random_comic' %}">Cómic Aleatorio</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>

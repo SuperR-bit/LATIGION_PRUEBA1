@@ -1,0 +1,20 @@
+h1 {
+    margin:80px 0 0 350px;
+    color:#ffffff;
+    background-color: rgba(87, 78, 78, 0.466)
+}
+
+.btn {
+    background-color: #F00;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: darkred;
+}

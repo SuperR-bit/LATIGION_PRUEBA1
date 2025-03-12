@@ -1,0 +1,88 @@
+{% extends 'comics/base.html' %}
+
+{% block content %}
+
+<section class="comic-info-container">
+    {% if comic.cover_image %}
+    <div class="home-img">        
+        <img src="{{ comic.cover_image.url }}" alt="{{ comic.title }}">
+    </div>
+    {% endif %}
+
+    <div class="comic-details">
+        <h1>Titulo: {{ comic.title }}</h1>
+        <p>Autor: {{comic.author.username}}</p>
+        <p>Estado: {{comic.status}}</p>
+        <p>Publicación: {{comic.created_at}} </p>
+        <p>Sinopsis: {{ comic.description }}</p>
+    </div>
+</section>
+
+<div class="chapters-container">
+    <h2>Capítulos</h2>
+    <div class="chapters-list">
+        <ul id="chapter-list">
+            {% for chapter in chapters %}
+                <li>
+                    <a href="{% url 'read_chapter' comic.id chapter.chapter_number|default:1 %}">
+                        {{ chapter.title }}
+                    </a> 
+                </li>
+            {% empty %}
+                <li>No hay capítulos aún.</li>
+            {% endfor %}
+        </ul>
+
+        <div class="footer">
+            <button>
+                <a href="{% url 'upload_chapter' comic.id %}">Subir Capítulo</a>
+            </button>
+
+            <button id="like-btn">
+                👍 Me gusta (<span id="like-count">{{ comic.likes }}</span>)
+            </button>
+
+            {% if user.is_authenticated %}
+
+            <form action="{% url 'delete_comic' comic.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn-delete">
+                    Eliminar Cómic
+                </button>
+            </form>
+            
+            {% endif %}
+
+            
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("like-btn").addEventListener("click", function() {
+        fetch("{% url 'like_comic' comic.id %}", {
+            method: "POST",
+            headers: {"X-CSRFToken": "{{ csrf_token }}"},
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.likes !== undefined) {
+                document.getElementById("like-count").textContent = data.likes;
+            }
+        });
+    });
+</script>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+

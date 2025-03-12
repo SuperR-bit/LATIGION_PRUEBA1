@@ -1,0 +1,62 @@
+.testimonials-carousel {
+    background: #f0f4f8;
+    padding: 2rem;
+    text-align: center;
+}
+
+.testimonials-carousel h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.carousel {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.testimonial {
+    display: none;
+    text-align: center;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial.active {
+    display: block;
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #555;
+}
+
+.testimonial h4 {
+    margin-top: 1rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.carousel-controls {
+    margin-top: 1rem;
+}
+
+.carousel-controls button {
+    background: #6a11cb;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.carousel-controls button:hover {
+    background: #2575fc;
+}

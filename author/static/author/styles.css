@@ -1,0 +1,95 @@
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        text-align: center;
+        padding-top: 50px; /* Ajusta esto según la altura de tu navbar */
+    }
+    header {
+        background: linear-gradient(135deg, #6b5b95, #b8a9c9);
+        color: white;
+        padding: 20px;
+    }
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+    nav ul li {
+        display: inline;
+        margin: 10px;
+    }
+    nav a {
+        text-decoration: none;
+        color: #6b5b95;
+        font-weight: bold;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        padding: 20px;
+    }
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    button {
+        background: #6b5b95;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .menu-global {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        z-index: 1000;
+    }
+    
+    .menu-global a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+    
+    .content {
+        margin-top: 60px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .image-gallery {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .image-gallery img {
+        /*width: 200px;*/
+        /*height: auto;*/
+        /*border-radius: 10px;*/
+        /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);*/
+
+        width: 100%; /* Ajusta la imagen al 100% del ancho del contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+        max-height: 200px; /* Limita la altura para evitar imágenes demasiado grandes */
+        object-fit: cover; /* Recorta la imagen para que llene el espacio sin deformarse */
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        max-width: 100%;
+    }

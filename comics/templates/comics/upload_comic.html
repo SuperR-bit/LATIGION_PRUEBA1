@@ -1,0 +1,16 @@
+{% extends "comics/base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+    <h2>Subir un nuevo cómic</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="submit-btn">Subir Cómic</button>
+    </form>
+</div>
+
+{% endblock %}

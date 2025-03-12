@@ -1,0 +1,121 @@
+{% extends 'comics/base.html' %}
+
+{% block content %}
+
+<section class = "fondo">
+
+    <div class="reader-container">
+        <div class="reader-header">
+            {% if previous_chapter %}
+                <a href="{% url 'read_chapter' comic.id previous_chapter.chapter_number %}" class="btn">← Capítulo Anterior</a>
+            {% endif %}
+            <a href="{% url 'comic_detail' comic.id %}" class="btn exit-btn">Salir</a>
+            {% if next_chapter %}
+                <a href="{% url 'read_chapter' comic.id next_chapter.chapter_number %}" class="btn">Siguiente Capítulo →</a>
+            {% endif %}
+        </div>
+
+        <button id="toggle-mode" class="btn toggle-btn">Modo Horizontal</button>
+
+        <div id="chapter-content" class="vertical-mode">
+            {% if images %}
+                {% for image in images %}
+                    <img src="{{ image }}" alt="Página del capítulo {{ chapter.chapter_number }}">
+                {% endfor %}
+            {% else %}
+                <p class="no-images">No hay imágenes disponibles para este capítulo.</p>
+            {% endif %}
+        </div>
+    </div>
+
+</section>
+
+<script>
+    document.getElementById("toggle-mode").addEventListener("click", function() {
+        let content = document.getElementById("chapter-content");
+        if (content.classList.contains("vertical-mode")) {
+            content.classList.remove("vertical-mode");
+            content.classList.add("horizontal-mode");
+            this.textContent = "Modo Vertical";
+        } else {
+            content.classList.remove("horizontal-mode");
+            content.classList.add("vertical-mode");
+            this.textContent = "Modo Horizontal";
+        }
+    });
+</script>
+
+<style>
+    body {
+        background-color: #000;
+        color: white;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .fondo {background-color: #000;
+        color: white;
+        margin: 0;
+        font-family: Arial, sans-serif;}
+
+    .reader-container {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .reader-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        background-color: #F00;
+        color: white;
+        font-size: 20px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: darkred;
+    }
+
+    .exit-btn {
+        background-color: #F00;
+    }
+
+    .toggle-btn {
+        margin-bottom: 20px;
+    }
+
+    #chapter-content img {
+        max-width: 100%;
+        display: block;
+        margin: auto;
+    }
+
+    .vertical-mode { display: block; }
+
+    .horizontal-mode {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 10px;
+    }
+
+    .horizontal-mode img {
+        max-height: 90vh;
+        width: auto;
+    }
+
+    .no-images {
+        font-size: 18px;
+        color: red;
+    }
+</style>
+
+{% endblock %}
